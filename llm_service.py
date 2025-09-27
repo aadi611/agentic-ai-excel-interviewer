@@ -18,7 +18,7 @@ from models import (
 logger = logging.getLogger(__name__)
 
 class LLMService:
-    """Service for interacting with Groq LLM"""
+    """Service for using Groq LLM"""
     
     def __init__(self, api_key: str, model: str = None):
         self.api_key = api_key
