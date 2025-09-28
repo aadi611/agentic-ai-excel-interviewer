@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS candidates (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Interview sessions table
+-- Interview session table
 CREATE TABLE IF NOT EXISTS interview_sessions (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     session_id VARCHAR(100) UNIQUE NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS pre_interview_checks (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Interview responses table
+-- Interview response table
 CREATE TABLE IF NOT EXISTS interview_responses (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     session_id VARCHAR(100) NOT NULL REFERENCES interview_sessions(session_id) ON DELETE CASCADE,
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS interview_responses (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Evaluation reports table
+-- Evaluation report table
 CREATE TABLE IF NOT EXISTS evaluation_reports (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     session_id VARCHAR(100) UNIQUE NOT NULL REFERENCES interview_sessions(session_id) ON DELETE CASCADE,
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS evaluation_reports (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Support incidents table
+-- Support incident table
 CREATE TABLE IF NOT EXISTS support_incidents (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     session_id VARCHAR(100) REFERENCES interview_sessions(session_id) ON DELETE SET NULL,
