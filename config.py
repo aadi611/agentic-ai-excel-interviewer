@@ -26,5 +26,5 @@ class Config:
     def validate(cls):
         """Validate required configuration"""
         if not cls.GROQ_API_KEY:
-            raise ValueError("GROQ_API_KEY not found in environment variables")
+            raise ValueError("GROQ_API_KEY not found in .env file")
         return True
